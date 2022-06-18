@@ -1,0 +1,176 @@
+/*---------------------------------------------------------------------------------*/
+/*                      commun aux pages restaurants                               */
+/*---------------------------------------------------------------------------------*/
+
+main {
+    background-color: var(--om-light-gray);
+}
+
+main img:first-child {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+
+}
+
+.main-content {
+    background-color: inherit;
+    border-radius: 40px 40px 0px 0px;
+    transform: translateY(-60px);
+}
+
+.main-content>div:first-child {
+    /* englobe le nom du plat + coeur */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 40px 30px 20px;
+    background-color: transparent;
+}
+
+.main-content>div:first-child h1 {
+    font-family: 'Shrikhand', cursive;
+    font-weight: normal;
+    font-size: 28px;
+}
+
+.main-content>section>h2 {
+    /* les titres : Entrées, Plats, Desserts */
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: normal;
+    color: #444;
+}
+
+.main-content>section>h2::after {
+    display: block;
+    content: " ";
+    background-color: #99e2d0;
+    width: 40px;
+    height: 3px;
+    margin-top: 5px;
+}
+
+.coeur {
+    background-color: var(--om-light-gray);
+}
+
+.main-content>section {
+    /* englobe les différentes propositions de plats */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0px 15px 40px 15px;
+
+}
+
+/*---------------------------------------------------------------------------------*/
+/*                      partie article = proposition de plat [entrée, dessert]     */
+/*---------------------------------------------------------------------------------*/
+
+section>article {
+    /* une proposition de plat */
+    display: flex;
+    justify-content: space-between;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0px 4px 4px #e3e3e3;
+    align-items: center;
+    height: 66px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+section>article>div:first-child {
+    /* toute la description du plat avec le prix, mais pas l'"animation sélection" */
+    padding: 0px 20px;
+}
+
+.desc-plat {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.desc-plat>h3 {
+    /* le nom du plat proposé */
+    font-weight: 500;
+    font-size: 18px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.desc-plat>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+section>article span:first-child {
+    /* la description complémentaire */
+    font-size: 14px;
+    line-height: 25px;
+    color: #555;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+section>article span:last-child {
+    /* le prix */
+    font-weight: 700;
+    color: #444;
+    padding-left: 15px;
+}
+
+/*---------------------------------------------------------------------------------*/
+/*                      bouton pour passer commande                                */
+/*---------------------------------------------------------------------------------*/
+
+.main-content>div:last-child {
+    /* englobe le bouton pour passer commande */
+    display: flex;
+    width: 100%;
+}
+
+.cmd {
+    /* pour modifier le bouton */
+    padding: 0px 50px;
+    margin: auto;
+}
+
+/*---------------------------------------------------------------------------------*/
+/*                      animation selection plat                                   */
+/*---------------------------------------------------------------------------------*/
+
+.desc-plat+div {
+    /* le div englobant le div .rel-mov  */
+    background-color: #8fdeca;
+    width: 0px;
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+article:hover .desc-plat+div {
+    width: 70px;
+}
+
+article:hover .rel-mov>i {
+    transform: rotate(360deg);
+}
+
+.rel-mov {
+    display: flex;
+    height: 100%;
+    width: 70px;
+}
+
+.rel-mov>i {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin: auto;
+    transform: rotate(0deg);
+    transition: transform 0.8s ease; 
+}
