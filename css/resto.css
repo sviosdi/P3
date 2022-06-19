@@ -167,6 +167,10 @@ section>article:nth-of-type(3) {
     animation: plats 500ms 300ms forwards;
 }
 
+section>article:nth-of-type(4) {
+    animation: plats 500ms 450ms forwards;
+}
+
 
 @keyframes plats {
     from {
