@@ -31,6 +31,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: var(--om-tertiaire);
+}
+
 h1,
 h2,
 h3 {
@@ -115,11 +119,13 @@ header img {
     background-color: inherit;
 }
 
+.coeur:hover {
+    cursor: pointer;
+}
+
 .coeur i {
     /* les icônes coeur */
     font-size: 24px;
-    cursor: pointer;
-
 }
 
 /* Le coeur creux est au-dessus du coeur plein. Le plein est caché par le fond blanc du creux. */
@@ -177,3 +183,4 @@ footer i {
     font-size: 14px;
     margin-right: 10px;
 }
+

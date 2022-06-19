@@ -65,95 +65,71 @@ main img:first-child {
 }
 
 /*---------------------------------------------------------------------------------*/
-/*                      partie article = proposition de plat [entrée, dessert]     */
+/*              partie article = proposition de plat [entrée, dessert]             */
 /*---------------------------------------------------------------------------------*/
 
-section>article {
+article {
     /* une proposition de plat */
-    display: flex;
-    justify-content: space-between;
+    display: flex;   
     border-radius: 15px;
     background-color: white;
     box-shadow: 0px 4px 4px #e3e3e3;
-    align-items: center;
     height: 66px;
     cursor: pointer;
     overflow: hidden;
 }
 
-section>article>div:first-child {
-    /* toute la description du plat avec le prix, mais pas l'"animation sélection" */
-    padding: 0px 20px;
-}
-
-.desc-plat {
+.desc {
+    /* la description du plat mais pas le prix */
     width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+    padding:10px;
 }
 
-.desc-plat>h3 {
+.desc>h3 {
     /* le nom du plat proposé */
     font-weight: 500;
     font-size: 18px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
 }
 
-.desc-plat>div {
-    display: flex;
-    justify-content: space-between;
-}
-
-section>article span:first-child {
-    /* la description complémentaire */
+.desc>div {
+    /*  le complément de description */
     font-size: 14px;
     line-height: 25px;
     color: #555;
+}
+.desc, .desc>h3, .desc>div {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 
-section>article span:last-child {
+.mov>div:first-child {
     /* le prix */
+    padding-top: 33px;
     font-weight: 700;
     color: #444;
-    padding-left: 15px;
-}
-
-/*---------------------------------------------------------------------------------*/
-/*                      bouton pour passer commande                                */
-/*---------------------------------------------------------------------------------*/
-
-.main-content>div:last-child {
-    /* englobe le bouton pour passer commande */
-    display: flex;
-    width: 100%;
-}
-
-.cmd {
-    /* pour modifier le bouton */
-    padding: 0px 50px;
-    margin: auto;
+    padding-right: 20px;
 }
 
 /*---------------------------------------------------------------------------------*/
 /*                      animation selection plat                                   */
 /*---------------------------------------------------------------------------------*/
 
-.desc-plat+div {
+.mov {
+    display: flex;
+}
+
+.mov>div:last-child {
     /* le div englobant le div .rel-mov  */
     background-color: #8fdeca;
     width: 0px;
     height: 100%;
-    transition: width 0.5s ease;
+    transition: width 0.5s ease;   
 }
 
-article:hover .desc-plat+div {
+article:hover .mov>div:last-child {
     width: 70px;
+
 }
 
 article:hover .rel-mov>i {
@@ -174,3 +150,53 @@ article:hover .rel-mov>i {
     transform: rotate(0deg);
     transition: transform 0.8s ease; 
 }
+
+/*---------------------------------------------------------------------------------*/
+/*                      animation de l'apparitions des plats                       */
+/*---------------------------------------------------------------------------------*/
+
+section>article:nth-of-type(1) {
+    animation: plats 500ms 100ms forwards;
+}
+
+section>article:nth-of-type(2) {
+    animation: plats 500ms 150ms forwards;
+}
+
+section>article:nth-of-type(3) {
+    animation: plats 500ms 300ms forwards;
+}
+
+
+@keyframes plats {
+    from {
+        opacity: 20%;
+        transform: translateY(15px);
+    }
+
+    75% {
+        opacity: 65%;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/*---------------------------------------------------------------------------------*/
+/*                      bouton pour passer commande                                */
+/*---------------------------------------------------------------------------------*/
+
+.main-content>div:last-child {
+    /* englobe le bouton pour passer commande */
+    display: flex;
+    width: 100%;
+}
+
+.cmd {
+    /* pour modifier le bouton */
+    padding: 0px 50px;
+    margin: auto;
+}
+
