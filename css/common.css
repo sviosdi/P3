@@ -106,7 +106,7 @@ header img {
     color: #fafafa;
     border: none;
     cursor: pointer;
-    transition: filter 0.4s ease;
+    transition: filter, box-shadow 0.4s ease;
 }
 
 .om-button:hover {
