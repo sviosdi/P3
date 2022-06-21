@@ -106,6 +106,12 @@ header img {
     color: #fafafa;
     border: none;
     cursor: pointer;
+    transition: filter 0.4s ease;
+}
+
+.om-button:hover {
+    filter: brightness(1.08);
+    box-shadow: 0px 6px 8px #888;
 }
 
 /*---------------------------------------------------------------------------------*/

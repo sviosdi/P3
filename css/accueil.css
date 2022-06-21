@@ -119,8 +119,9 @@ header a {
   padding: 40px 20px 60px 20px;
 }
 
-.restaurants>div  {
-  margin-top: 20px;;
+.restaurants>div {
+  margin-top: 20px;
+  ;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -128,6 +129,7 @@ header a {
 
 .restaurants a {
   /* chacune des cards restaurant */
+  position: relative;
   height: 250px;
   width: 100%;
   flex-grow: 1;
@@ -143,17 +145,17 @@ header a {
   object-fit: cover;
 }
 
-.restaurants a>div {
+.desc-rest {
   /* l'ensemble: description + coeur */
   display: flex;
   gap: 30px;
   width: 100%;
   justify-content: space-between;
   position: relative;
-  background-color: white;  
+  background-color: white;
 }
 
-.restaurants a>div>div:first-child {
+.desc-rest>div:first-child {
   /* la description de chaque carte restaurant */
   color: black;
   padding: 15px;
@@ -178,6 +180,20 @@ header a {
   margin-right: 24px;
 }
 
+.nouveau {
+  position: absolute;
+  top: 20px;
+  right:20px;
+  background-color: #99e2d0;
+  color: #058a6a;
+  padding: 10px 15px;
+  width: fit-content;
+  border-radius: 4px; 
+  font-weight: 700;
+  font-size: 19px;
+
+}
+
 /*--------------------------------------------------------------------------*/
 /*                     page loader                                          */
 /*--------------------------------------------------------------------------*/
@@ -187,8 +203,8 @@ header a {
   position: fixed;
   height: 100vh;
   width: 100vw;
-  background-color:#171f30;
-  z-index:1;
+  background-color: #171f30;
+  z-index: 1;
   animation: bg-fadeout 2.8s forwards;
   background: linear-gradient(var(--om-secondaire), var(--om-primaire));
 }
@@ -210,8 +226,8 @@ header a {
   border-radius: 3px;
   background-color: inherit;
   animation-name: animloader;
-  animation-duration:  0.7s;
-  animation-timing-function:linear;
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
   animation-iteration-count: 4;
 }
 
@@ -226,20 +242,24 @@ header a {
   0% {
     box-shadow: 20px -10px, 40px 10px, 60px 0px;
   }
+
   25% {
-    box-shadow: 20px 0px, 40px  0px, 60px 10px;
+    box-shadow: 20px 0px, 40px 0px, 60px 10px;
   }
+
   50% {
     box-shadow: 20px 10px, 40px -10px, 60px 0px;
   }
+
   75% {
     box-shadow: 20px 0px, 40px 0px, 60px -10px;
   }
+
   100% {
     box-shadow: 20px -10px, 40px 10px, 60px 0px;
   }
 }
-    
+
 
 @keyframes bg-fadeout {
   from {
@@ -247,7 +267,7 @@ header a {
     display: block;
   }
 
- 60% {
+  60% {
     opacity: 0.99;
   }
 
@@ -256,7 +276,7 @@ header a {
   }
 
   to {
-    display:none;
+    display: none;
     opacity: 0;
     transform: scale(0);
   }
