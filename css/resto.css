@@ -13,13 +13,13 @@ main img:first-child {
 
 }
 
-.main-content {
+.restos {
     background-color: inherit;
     border-radius: 40px 40px 0px 0px;
     transform: translateY(-60px);
 }
 
-.main-content>div:first-child {
+.restos>div:first-child {
     /* englobe le nom du plat + coeur */
     display: flex;
     justify-content: space-between;
@@ -28,21 +28,28 @@ main img:first-child {
     background-color: transparent;
 }
 
-.main-content>div:first-child h1 {
+.restos>div:first-child h1 {
     font-family: 'Shrikhand', cursive;
     font-weight: normal;
     font-size: 28px;
 }
 
-.main-content>section>h2 {
+.restos>div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+}
+
+.restos section>h2 {
     /* les titres : Entrées, Plats, Desserts */
+    display: block;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: normal;
     color: #444;
 }
 
-.main-content>section>h2::after {
+.restos section>h2::after {
+    position: absolute;
     display: block;
     content: " ";
     background-color: #99e2d0;
@@ -55,7 +62,7 @@ main img:first-child {
     background-color: var(--om-light-gray);
 }
 
-.main-content>section {
+.restos section {
     /* englobe les différentes propositions de plats */
     display: flex;
     flex-direction: column;
