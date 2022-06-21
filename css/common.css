@@ -158,15 +158,20 @@ header img {
 /*                      footer                                                     */
 /*---------------------------------------------------------------------------------*/
 
+
 footer {
+    background-color: var(--om-dark);
+}
+
+
+footer>div {
     display: flex;
     flex-direction: column;
-    background-color: var(--om-dark);
     color: white;
     padding: 25px;
 }
 
-footer>h3 {
+footer>div>h3 {
     font-family: 'Shrikhand', cursive;
     font-size: 18px;
     font-weight: normal;

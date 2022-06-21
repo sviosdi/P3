@@ -2,6 +2,10 @@ header a {
   display: none;
 }
 
+/*--------------------------------------------------------------------------*/
+/*                     Partie localisation                                  */
+/*--------------------------------------------------------------------------*/
+
 .localisation {
   display: flex;
   background-color: var(--om-gray);
@@ -27,6 +31,10 @@ header a {
   margin-right: 15px;
 }
 
+/*--------------------------------------------------------------------------*/
+/*                     Partie présentation                                  */
+/*--------------------------------------------------------------------------*/
+
 .presentation {
   display: flex;
   flex-direction: column;
@@ -48,24 +56,9 @@ header a {
   font-size: 17.5px;
 }
 
-/*
-.presentation a:hover {
-  background: linear-gradient(#ff9bfc, #b578fe);
-  box-shadow: 0px 6px 6px #ddd;
-}
-
-.presentation a:active {
-  background: linear-gradient(#dd57b8, #7134ba);
-  box-shadow: 0px 6px 6px #999;
-}
-
-
-.presentation>a>span {
-  margin: auto;
-}
-
-*/
-
+/*--------------------------------------------------------------------------*/
+/*                     Partie fonctionnement                                */
+/*--------------------------------------------------------------------------*/
 
 .fonctionnement {
   padding: 50px 20px 40px 20px;
@@ -116,53 +109,63 @@ header a {
   color: #858585;
 }
 
-#restaurants {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/*--------------------------------------------------------------------------*/
+/*                     Partie Restaurants                                   */
+/*--------------------------------------------------------------------------*/
+
+
+.restaurants {
   background-color: var(--om-light-gray);
   padding: 40px 20px 60px 20px;
 }
 
-#restaurants a {
+.restaurants>div  {
+  margin-top: 20px;;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.restaurants a {
   /* chacune des cards restaurant */
   height: 250px;
   width: 100%;
+  flex-grow: 1;
   background-color: white;
   border-radius: 15px;
   box-shadow: 0px 4px 4px #e3e3e3;
+  overflow: hidden;
 }
 
-#restaurants a img {
-  height: 170px;
+.restaurants a img {
+  height: calc(100% - 80px);
   width: 100%;
   object-fit: cover;
-  border-radius: 15px 15px 0px 0px;
-
 }
 
-#restaurants a>div {
+.restaurants a>div {
   /* l'ensemble: description + coeur */
   display: flex;
+  gap: 30px;
   width: 100%;
   justify-content: space-between;
   position: relative;
-  background-color: white;
+  background-color: white;  
 }
 
-#restaurants a>div>div:first-child {
+.restaurants a>div>div:first-child {
   /* la description de chaque carte restaurant */
   color: black;
   padding: 15px;
 }
 
-#restaurants h3 {
+.restaurants h3 {
   /* nom du restaurant sur la card */
   font-size: 17.5px;
   color: #1a1a1a;
 }
 
-#restaurants span {
+.restaurants span {
   /* nom du menu */
   font-size: 16.5px;
   color: #555;
@@ -173,4 +176,89 @@ header a {
   /* les icônes coeurs */
   margin-top: 18px;
   margin-right: 24px;
+}
+
+/*--------------------------------------------------------------------------*/
+/*                     page loader                                          */
+/*--------------------------------------------------------------------------*/
+
+.loader {
+  display: flex;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color:#171f30;
+  z-index:1;
+  animation: bg-fadeout 2.1s forwards;
+  background: linear-gradient(var(--om-secondaire), var(--om-primaire));
+}
+
+.loader>div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
+.loader span {
+  display: inline-block;
+  position: relative;
+  left: -40px;
+  width: 6px;
+  height: 48px;
+  color: white;
+  border-radius: 3px;
+  background-color: inherit;
+  animation-name: animloader;
+  animation-duration:  0.7s;
+  animation-timing-function:linear;
+  animation-iteration-count: 3;
+}
+
+.loader p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: normal;
+  font-size: 28px;
+  color: white;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow: 20px -10px, 40px 10px, 60px 0px;
+  }
+  25% {
+    box-shadow: 20px 0px, 40px  0px, 60px 10px;
+  }
+  50% {
+    box-shadow: 20px 10px, 40px -10px, 60px 0px;
+  }
+  75% {
+    box-shadow: 20px 0px, 40px 0px, 60px -10px;
+  }
+  100% {
+    box-shadow: 20px -10px, 40px 10px, 60px 0px;
+  }
+}
+    
+
+@keyframes bg-fadeout {
+  from {
+    opacity: 1;
+    display: block;
+  }
+
+  75% {
+    opacity: 0.99;
+  }
+
+  99% {
+    transform: scale(1);
+    
+  }
+
+  to {
+    display:none;
+    opacity: 0;
+    transform: scale(0);
+  }
 }
